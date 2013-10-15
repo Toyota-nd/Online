@@ -1,0 +1,290 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php 
+	echo $this->doctype(); 
+	$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+	$this->headTitle('崑山科技大學報名中華電信創新應用競賽管理系統')->setSeparator(' - ');
+    echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/site.css');
+    echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/style.css');
+	$this->jQuery()->setLocalPath('/cca/public/js/jquery-1.8.3.min.js')
+         ->addStylesheet('/cca/public/css/datepicker.css')
+         ->addStylesheet('/cca/public/css/normalize.css');
+	echo $this->jQuery();		 
+?>  
+<!-- Keep the http-equiv meta tag for IE8 -->
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<!-- Start css3menu.com HEAD section -->
+<link rel="stylesheet" href="index_layout.phtml_files/css3menu1/style.css" type="text/css" />
+<!-- End css3menu.com HEAD section -->
+</head>
+<body class="auth_layout">
+<div>
+<table style="width: 100%" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td style="width: 600px; height: 21px; text-align: center">
+<table style="width: 100%; margin: 0px;" border="0" cellpadding="0" cellspacing="0">
+
+<tr>
+<td>
+</td>
+<td colspan="3" style="width: 1000px">
+<object id="FlashControl1" width="1000px" height="130px" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0">
+<param name="movie" value="/cca/public/images/SwfFiles/CMSbanner.swf">
+<param name="align" value="t">
+<param name="salign" value="l">
+<param name="quality" value="High">
+<param name="play" value="True">
+<param name="loop" value="False">
+<param name="menu" value="False">
+<param name="scale" value="Showall">
+</object>
+</td>
+<td>
+</td>
+</tr>
+
+<tr>
+<td>
+</td>
+<td align="center" style="width: 150px; background-color: #99cc66;" valign="top">
+
+<br />
+<table id="TABLE1" 
+style="width:145px; height: 82px; border-left-color: gray; border-bottom-color: gray; margin: 0px; border-top-style: solid; border-top-color: gray; border-right-style: solid; border-left-style: solid; border-right-color: gray; border-bottom-style: solid;" border="1" cellpadding="0" cellspacing="0" rules="none">
+<tr>
+<td colspan="4" style="height: 14px; background-color: #000000;">
+<div class="style6" style="text-align: center">
+<span style="font-size: 10pt; color: #ffffff">
+<?echo $this->loggedInAs();?></span></div>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+</tr>
+</table>
+<br />
+<table style="width:145px; height: 82px; border-left-color: gray; border-bottom-color: gray; margin: 0px; border-top-style: solid; border-top-color: gray; border-right-style: solid; border-left-style: solid; border-right-color: gray; border-bottom-style: solid;" border="1" cellpadding="0" cellspacing="0" rules="none">
+<tr>
+<td colspan="5" style="height: 14px; background-color: #000000">
+<div class="style6" style="text-align: center">
+<span style="font-size: 10pt"><span style="color: #ffffff">
+競賽追踪平台資訊</span> </span>
+</div>
+</td>
+</tr>
+
+<tr style="font-size: 10pt" >
+<td align="left" colspan="1" rowspan="2" style="list-style-position: outside; list-style-image: url(/cca/public/images/resultset_next.png);
+width: 10px; color: #006633; line-height: 1.5em; height: 67px; text-align: justify">
+</td>
+<td colspan="4" align="left" style="color: #006633; line-height: 1.5em; list-style-position: outside; list-style-image: url(/cca/public/images/resultset_next.png); height: 67px; text-align: justify;" charoff="30" rowspan="2">
+
+
+
+<a href="#ctl00_Menu1_SkipLink"><img alt="略過巡覽連結" src="/WebResource.axd?d=MH0NbzuOUinEyQCE9-Ru601Q3UVFXY3uhTlJDC2BasJQZjdU2JC5PSY7EXGXyGU72W3kxAHSNnt-Wde_3SUNM_9-qpI1&amp;t=634886209261366250" width="0" height="0" style="border-width:0px;" /></a>
+<table id="ctl00_Menu1" class="ctl00_Menu1_2" cellpadding="0" cellspacing="0" border="0">
+<div class="mainmenu">
+<ul>
+<li class="li_nc"><a href="/cca/public/index" target="_self" >首頁　　　　</a></li>
+<li class="li_hc"><a href="#" target="_self" >競賽登記　　<img src="/cca/public/images/resultset_next.png" border=0></a>
+<ul class="ul_ch">
+<li class="li_nc"><a href="/cca/public/campaign/trace/add"  >登記參賽</a></li>
+<li class="li_nc"><a href="#"  >修改內容</a></li>
+<li class="li_nc"><a href="#"  >歷史查詢</a></li>
+<li class="li_nc"><a href="#"  >團隊成員</a></li>
+</ul>
+<li class="li_hc"><a href="#" target="_self" >競賽回報　　<img src="/cca/public/images/resultset_next.png"  border=0></a>
+<ul class="ul_ch">
+<li class="li_nc"><a href="#"  >入圍回報</a></li>
+<li class="li_nc"><a href="#"  >得獎回報</a></li>
+</ul>
+</li>
+<li class="li_hc"><a href="#" target="_self" >跨院系團隊　<img src="/cca/public/images/resultset_next.png"  border=0></a>
+<ul class="ul_ch">
+<li class="li_nc"><a href="#"  >團隊組建</a></li>
+<li class="li_nc"><a href="#"  >進度追踪</a></li>
+</ul>
+<li class="li_hc"><a href="#" target="_self" >競賽資訊　　<img src="/cca/public/images/resultset_next.png"  border=0></a>
+<ul class="ul_ch">
+<li class="li_nc"><a href="#"  >得獎作品觀摩</a></li>
+<li class="li_nc"><a href="#"  >競賽注意事項</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+</table>
+
+
+</a>
+
+</td>
+</tr>
+</table>
+<br />
+
+<div>
+</div>
+<p style="text-align: center">
+<span style="font-size: 10pt; font-family: 新細明體"></span>
+<span
+style="font-size: 10pt; font-family: 新細明體"> <span style="vertical-align: text-bottom;
+color: #660066"><span style="color: #003300">目前報名</span>
+<?foreach ($this->counts as $cs):?>
+<img src="/cca/public/images/digital/<? print $cs; ?>.jpg"  border=0>
+<?endforeach;?>
+<span style="color: #003300">
+隊</span></span>&nbsp;</span><span style="font-size: 10pt; font-family: 新細明體">
+</span></p>
+</td>
+<td class="style_b" style="width: 700px; text-align: center; background-color: #ffffff; list-style-position: inside; list-style-type: square;" valign="top" align="center">
+
+<div style="text-align: center">
+
+<div id="ctl00_ContentPlaceHolder1_Panel1" style="color:Gray;font-size:10pt;height:50%;width:700px;text-align:center;">
+
+<?if (Zend_Auth::getInstance()->hasIdentity()):?>
+<table>
+<tr>
+<td>
+<!-- Start css3menu.com BODY section -->
+<ul id="css3menu1" class="topmenu">
+		<li class="topmenu"><a href="#" style="height:37px;line-height:37px;"><span><img src="/cca/public/images/menu/service1.png" alt=""/>MyKSU</span></a>
+	<ul>
+		<li class="sublast"><a href="#">中華電信創新應用大賽</a></li>
+	</ul></li>
+	
+	<li class="topmenu"><a href="#" style="height:37px;line-height:37px;"><span><img src="/cca/public/images/menu/1.png" alt=""/>競賽登記</span></a>
+	<ul>
+		<li class="subfirst"><a href="/cca/public/campaign/campaign/addcampaign">登記參賽</a></li>
+		<li><a href="/cca/public/campaign/campaign/updatecampaign">修改內容</a></li>
+		<li><a href="/cca/public/campaign/campaign/listcampaign">歷史查詢</a></li>
+		<li class="sublast"><a href="/cca/public/campaign/campaign/groupcampaign">團隊成員</a></li>
+	</ul></li>
+	<li class="topmenu"><a href="#" style="height:37px;line-height:37px;"><span><img src="/cca/public/images/menu/22.png" alt=""/>跨院系團隊</span></a>
+	<ul>
+		<li class="subfirst"><a href="#">團隊組建</a></li>
+		<li class="sublast"><a href="#">進度追踪</a></li>
+	</ul></li>
+	<li class="topmenu"><a href="#" style="height:37px;line-height:37px;"><span><img src="/cca/public/images/menu/3.png" alt=""/>競賽回報</span></a>
+	<ul>
+		<li class="subfirst"><a href="#">入圍回報</a></li>
+		<li class="sublast"><a href="#">得獎回報</a></li>
+	</ul></li>
+	<li class="topmenu"><a href="#" style="height:37px;line-height:37px;"><span><img src="/cca/public/images/menu/icon43.png" alt=""/>競賽資訊</span></a>
+	<ul>
+		<li class="subfirst"><a href="#">各組參賽狀況</a></li>
+		<li><a href="#">得獎作品觀摩</a></li>
+		<li class="sublast"><a href="#">競賽注意事項</a></li>
+	</ul>
+	</li>
+	<li class="topmenu"><a href="#" style="height:37px;line-height:37px;"><span><img src="/cca/public/images/menu/samples.png" alt=""/>系統管理</span></a>
+	<ul>
+		<li class="subfirst"><a href="#">建立競賽</a></li>
+		<li><a href="#">刪除報名</a></li>
+		<li><a href="#">系統設定</a></li>
+		<li class="sublast"><a href="#">發送通知</a></li>
+	</ul>
+	</li>
+</ul>
+<!-- End css3menu.com BODY section -->
+</td>
+</tr>
+
+</table>
+<? endif;?>
+
+
+
+<table style="width: 700px">
+<tr>
+<td style="width: 0px; height: 26px;">
+</td>
+<td style="text-align: left; width: 700px; height: 26px;">
+<?php 
+echo $this->layout()->content;
+?>
+</td>
+<td style="width: 0px; height: 26px;">
+</td>
+</tr>
+</table>
+<br />
+</div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+</td>
+<td align="center" style="width: 150px; background-color: #99cc66;" valign="top">
+<br />
+<table style="width:145px; height: 82px; border-left-color: gray; border-bottom-color: gray; margin: 0px; border-top-style: solid; border-top-color: gray; border-right-style: solid; border-left-style: solid; border-right-color: gray; border-bottom-style: solid;" border="1" cellpadding="0" cellspacing="0" rules="none">
+<tr>
+<td colspan="2" rowspan="2">
+<object id="FlashControl2" width="143px" height="130px" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0">
+<param name="movie" value="/cca/public/images/KsuHomeFlash.swf">
+<param name="quality" value="High">
+<param name="play" value="True">
+<param name="loop" value="True">
+<param name="menu" value="False">
+<param name="scale" value="Showall">
+</object>
+</td>
+</tr>
+<tr style="font-size: 10pt" >
+</tr>
+</table>
+
+<br />
+<table id="Table2" 
+style="width:145px; height: 82px; border-left-color: gray; border-bottom-color: gray; margin: 0px; border-top-style: solid; border-top-color: gray; border-right-style: solid; border-left-style: solid; border-right-color: gray; border-bottom-style: solid;" border="1" cellpadding="0" cellspacing="0" rules="none">
+<tr>
+<td colspan="5" style="height: 14px; background-color: #000000;">
+<div class="style6" style="text-align: center">
+<span style="font-size: 10pt; color: #ffffff">其他連結</span></div>
+</td>
+</tr>
+
+<tr style="font-size: 12pt">
+<td colspan="5" style="text-align: center; height: 110px; border-bottom: #666666 1px solid;">
+<a href="http://www.facebook.com/KSURDCT/" target="_blank"><img src="/cca/public/images/right_3.png" onmouseover="this.src='images/right_3_over.png'" onmouseout="this.src='images/right_3.png'" alt="facebook" style="border-width:0px;" /></a>
+</td>
+</tr>
+<tr style="font-size: 12pt">
+<td colspan="5" style="height: 110px; text-align: center">
+<a href="http://www.wretch.cc/blog/ireneinksu" target="_blank"><img src="/cca/public/images/right_4.png" onmouseover="this.src='images/right_4_over.png'" onmouseout="this.src='images/right_4.png'" alt="facebook" style="border-width:0px;" /></a>
+</td>
+</tr>
+</table>
+
+
+<br />
+<br />
+<br />
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="height: 51px">
+</td>
+<td colspan="3" style="background-color: #006633; height: 51px;">
+<div align="center"><span style="font-size: 10pt; color: #ffffff; font-family: 新細明體">崑山科技大學 電子計算機中心<br />
+行政諮詢組<br />
+71003 台南市永康區大灣路949號<br />
+服務時間：週一 ~ 週五 8：00 - 17：00<br />
+TEL：(06)2727175 * 209 Email: cca01@mail.ksu.edu.tw <span style="font-size: 8pt">建議最佳瀏覽器(IE8.0
+或 Firefox)</span></span></div></td>
+<td style="height: 51px">
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
+

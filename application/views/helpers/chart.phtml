@@ -1,0 +1,119 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<title>jQuery Google Chart</title>
+<style type="text/css">
+#scoreChart { width: 450px; height: 400px }
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.gchart.js"></script>
+<script type="text/javascript" src="json2.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+	$('.chart').click(function () {
+	$.ajax({
+	  type: "POST",
+	  url: "www.localhost.com/toyota/application/modules/exam/views/helpers/Chart.php",
+	  dataType: "json",
+	  data:
+		{
+		event:'database:click',
+		type:$(this).attr("type"),
+		sql:$(this).attr("sql"),
+		db:$(this).attr("db"),
+		table:$(this).attr("table"),
+		name:$(this).attr("name"),
+		field:$(this).attr("field"),
+		key:$(this).attr("key"),
+		value:$(this).val(),
+		pk:$(this).attr("pk"),
+		id:$(this).attr("id")
+		},
+		
+        beforeSend:function(xhr, s) {
+		
+		  var id = "#"+s.data.replace(/.*\&id=(\w)\&{0,1}/,"$1");
+		  if (s.data.match(/\&type=checkbox/)!==null) {
+			  if ($(id).attr('checked') == 'checked') {
+				s.data = s.data.replace(/\&value=1/,"&value=0");
+			  } else {
+				s.data = s.data.replace(/\&value=0/,"&value=1");
+			  }
+		  };
+		//alert(s.data);
+        },		
+	  error: function(msg){
+		alert("Error"+JSON.stringify(msg));
+	  },
+	  success: function(r){
+		alert(r);
+		/*var str = "["+
+		"$.gchart.series('最高', r.series[0], 'red', 'ffcccc'),"+
+		"$.gchart.series('最低', r.series[1], 'green'),"+
+		"$.gchart.series('分佈', r.series[2], 'blue', 0, 200)"+
+		"]";*/
+		var str = "[";
+		var range = ['最高','最低','分佈'];
+		var colors = ['red','green','blue'];
+		var name1 = ['ffcccc','','0'];
+		var name2 = ['','','200'];
+		for (i=0; i<r.series.length; i++) {
+			str +=  "$.gchart.series(range["+ i + "],r.series["+ i +"],colors["+ i +"])";
+			if(i!=r.series.length)
+				str += 	",";
+		}
+		str +=  "]";
+		alert(str);
+		var dataset = eval(str);
+		//str = JSON.parse('{"data":["test":"1"]}');
+		//alert(str.data.test);
+		$('#scoreChart').gchart({
+		type: 'r', maxValue: 40,
+		title: r.title, titleColor: 'green',
+		backgroundColor: $.gchart.gradient('horizontal', 'ccffff', 'ccffff00'),
+		series: dataset,
+		axes: [
+		$.gchart.axis('bottom', r.category, 'black'),
+		$.gchart.axis('left', 0, 40, 'red', 'right'),
+		$.gchart.axis('left', ['題數'], [50], 'red', 'right'),
+		$.gchart.axis('right', 0, 200, 50, 'blue', 'left'),
+		$.gchart.axis('right', ['分'], [50], 'blue', 'left')
+		],
+		legend: 'right'
+		});
+		
+		}
+		});
+		
+
+
+
+	
+		
+		// return1 and return2 is value from php file.
+		// fill out DOM element or do the windows.location()
+	  
+		//  if (msg !="1") {
+		//	alert( "Error for Data Saved: " + msg );
+		//  }
+	});
+});
+</script> 
+</head>
+<body>
+<input class="chart"  type="button" sql="editgrid" db="toyota" table="gchart_category,gchart_series" value="查詢雷達圖" name=""  field="" key=""/>
+<div id="scoreChart"></div>
+<FORM NAME="entryForm">
+</form>
+<!--
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4715900-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+-->
+</body>

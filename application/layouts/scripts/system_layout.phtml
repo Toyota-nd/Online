@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php 
+	echo $this->doctype(); 
+	$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+	$this->headTitle('The General Purpose Web Site Management System')->setSeparator(' - ');
+    echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/site.css');
+    echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/style.css');
+    echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/system_layout.css');
+	$this->jQuery()->setLocalPath('/cca/public/js/jquery-1.8.3.min.js')
+         ->addStylesheet('/cca/public/css/datepicker.css')
+         ->addStylesheet('/cca/public/css/normalize.css');
+	echo $this->jQuery();
+/*
+	if($this->dojo()->isEnabled()) {
+		Zend_Dojo_View_Helper_Dojo::setUseDeclarative();
+		$this->dojo()->setLocalPath($this->baseUrl().'/js/dojo/dojo/dojo.js')
+					->setDjConfigOption(ÿusePlainJsonÿ,true)
+					->addStyleSheetModule('dijit.themes.tundra')
+					->addStylesheet($this->baseUrl(). '/js/dojo/dojox/grid/_grid/tundraGrid.css');
+		echo $this->dojo();
+	}
+*/ 
+?> 
+<!-- Keep the http-equiv meta tag for IE8 -->
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<!-- Start css3menu.com HEAD section -->
+<link rel="stylesheet" href="index_layout.phtml_files/css3menu1/style.css" type="text/css" />
+<!-- End css3menu.com HEAD section -->
+</head>
+<body class="system_layout">
+	<table id="maintable" >
+	<tr>
+		<div border=1 height="100%" width="100%" >
+			<td id="Banner1_1" colspan="3">
+						<object id="FlashControl1" width="100%" height="100%" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0">
+						<param name="movie" value="/cca/public/images/SwfFiles/Banner1_1.swf">
+						<param name="align" value="t">
+						<param name="salign" value="l">
+						<param name="quality" value="High">
+						<param name="play" value="True">
+						<param name="loop" value="False">
+						<param name="menu" value="False">
+						<param name="scale" value="Showall">
+						</object>
+			</td>
+		</div>
+	</tr>
+	<tr>
+		<div border=1 height="100%" width="100%" >
+			<td id="Content2_1">
+				<table id="subtable" >
+					<tr>
+						<td id="Subarea1_1_in_Info2_1">
+						<div class="style6" style="text-align: center;background-color:#000000">
+						<span style="font-size: 10pt; color: #ffffff">
+						<?echo $this->loggedInAs();?>
+						</span>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td id="Subarea2_1_in_Info2_1">
+						<img name="Subarea2_1_in_Info2_1" src="/cca/public/images/Subarea2_1_in_Info2_1.png">
+						</td>
+					</tr>
+					<tr>
+						<td id="Subarea3_1_in_Info2_1">
+						<img name="Subarea3_1_in_Info2_1" src="/cca/public/images/Subarea3_1_in_Info2_1.png">
+						</td>
+					</tr>
+				 </table>
+			</td>
+		</div>
+		<div border=1 height="100%" width="100%" >
+			<td id="Content2_2">
+			<?php echo $this->render('system_menu.phtml');?>
+			<?php echo $this->layout()->content;?>
+			</td>
+		</div>
+		<div border=1 height="100%" width="100%" >
+			<td id="Content2_3">
+				<table id="subtable" >
+					<tr>
+						<td id="Subarea1_1_in_Info2_3">
+						<object id="FlashControl1" width="100%" height="100%" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0">
+						<param name="movie" value="/cca/public/images/SwfFiles/Subarea1_1_in_Info2_3.swf">
+						<param name="align" value="t">
+						<param name="salign" value="l">
+						<param name="quality" value="High">
+						<param name="play" value="True">
+						<param name="loop" value="False">
+						<param name="menu" value="False">
+						<param name="scale" value="Showall">
+						</object>
+						</td>
+					</tr>
+					<tr>
+						<td id="Subarea2_1_in_Info2_3">
+						<object id="FlashControl1" width="100%" height="100%" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0">
+						<param name="movie" value="/cca/public/images/SwfFiles/Subarea2_1_in_Info2_3.swf">
+						<param name="align" value="t">
+						<param name="salign" value="l">
+						<param name="quality" value="High">
+						<param name="play" value="True">
+						<param name="loop" value="False">
+						<param name="menu" value="False">
+						<param name="scale" value="Showall">
+						</object>
+						</td>
+					</tr>
+				 </table>
+			</td>
+		</div>
+	</tr>
+	<tr>
+		<div border=1 height="100%" width="100%" >
+			<td id="Banner3_1" colspan="3">
+			<?php echo $this->render('Banner3_1.phtml');?>
+			</td>
+		</div>
+	</tr>
+</table>
+</body>
+</html>

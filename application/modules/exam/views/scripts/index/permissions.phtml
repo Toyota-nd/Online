@@ -1,0 +1,110 @@
+<?
+echo $this->headLink()
+			->setStylesheet($this->baseUrl().'/css/ui.jqgrid.css')
+			->setStylesheet($this->baseUrl().'/css/themes/pepper-grinder/jquery.ui.theme.css');	
+?>
+<script src="<?echo $this->baseUrl();?>/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/grid.locale-zh_tw.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/dtable.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/masterdetail.js" type="text/javascript"></script>
+
+<?
+
+/*
+MasterDetail主vs.明細的使用說明
+0.外框要加此DIV
+<div id="MasterDetail" style="overflow:scroll; width:900px; height:400px;">
+
+1.join="n0,n1,...,nk" 說明：
+join="從左至右(包括序號與checkbox)，從0開始計算主表PK欄位的位置，
+而所在索引即指定明細表的數字編號"。
+如join="2"表示,第三個欄位user_id鏈結到明細表id="DetailGrid0"，
+join="2,4,5"表示,第三、五、六個欄位鏈結到明細表
+分別為id="DetailGrid0"、id="DetailGrid1"、id="DetailGrid2"
+
+2.id="XXXXXXXXn"說明：
+id="MasterGrid0"表示第一個主表，而且0...n必須連號，標籤位置可任意擺放
+id="DetailGrid0"表示第一個明細表，而且0...n必須連號，標籤位置可任意擺放
+
+3.key="xxxxxxx"說明：
+key="user_id"表示主表PK，或明細表FK
+
+4.type="xxx,xxx,xxx..."說明：
+目前有"view","edit","add","del","search","refresh","copy","compare"可用
+分別表示位於導航列的操作工具功能為
+檢視，修改，新增，刪除，搜尋，刷新，複製，比較。
+
+5.sql="editgrid"說明：
+表示呼叫IndexControl/listsqlAction SQL命令的使用為jqGrid量身製作。
+
+6.title="XXXX,XXXX,XXXX,..."說明：
+表示jqGrid的欄位標頭，中間不可有空白。避免使用如name=""($_POST專用的屬性)
+這些與HTML標籤己定義的屬性。
+
+7.field=xxx,xxx,xxx,..."說明：
+表示資料庫欄位，中間不可有空白。
+
+8.value= "XXXXXXXXXX"
+表示jqGrid的的Caption。要標順序且主明細之間最好以<hr>隔開，以利閱讀。
+*/
+?>
+
+<div id="MasterDetail" style="overflow-y: auto;overflow-x: hidden; width:100%; height:100%;">
+	<table id="MasterGrid0" join="2" type="edit,add,del,search,refresh,print" sql="editgrid" db="toyota" 
+	table="user" value= "1.選定個人" 
+	title="代號,姓名,角色,部門,職位,主管" 
+	field="user_id,name,role,department_id,position,supervisor" 
+	key="user_id"></table>
+	<div id="mpager0"></div>
+
+	<table id="DetailGrid0" type="edit,add,del" sql="editgrid" db="toyota"
+	table="task" value= "1.1個人專案分派"
+	title="工作代號,名稱,優先權,員工代號,角色代號,部門代號"
+	field="task_id,name,priority,user_id,role_id,department_id" 
+	key="user_id"></table>
+	<div id="dpager0"></div>	
+	<hr>
+	
+	<table id="MasterGrid1" join type="edit,add,del,search,refresh,print" sql="editgrid" db="toyota" 
+	table="role" value= "2.賦予角色" 
+	title="角色代號,角色名稱,角色所屬主管,角色生效日期" 
+	field="role_id,name,supervisor,created" 
+	key="role_id"></table>
+	<div id="mpager1"></div>
+	<hr>
+	
+	<table id="MasterGrid2" join=",2" type="edit,add,del,search,refresh,print" sql="editgrid" db="toyota"
+	table="department" value= "3.隸屬部門"
+	title="部門代號,部門名稱,上級單位" 
+	field="department_id,name,supervisor" 
+	key="department_id" ></table>
+	<div id="mpager2"></div>
+	<table id="DetailGrid1" type="edit,add,del" sql="editgrid" db="toyota"
+	table="task" value= "3.1部門的專案分派"
+	title="工作代號,名稱,優先權,員工代號,角色代號,部門代號"
+	field="task_id,name,priority,user_id,role_id,department_id" 
+	key="department_id"></table>
+	<div id="dpager1"></div>		
+	
+</div>
+<!--
+<table id="MasterGrid" type="edit" sql="editgrid" db="toyota" 
+table="user" value= "帳號管理" 
+name="代號,帳號,姓名,角色" 
+field="user_id,name,cname,role" 
+key="user_id" where= "user_id='<?//echo $this->user->user_id?>'"></table>
+-->
+<hr />
+<span id="spaMsg" class="<?echo ERROR_STYLE;?>" title="<?echo $this->module . '/' . $this->controller . '/' . $this->action;?>">
+<?echo $this->status;?>
+</span>
+<div id= "div_tags" title="考卷名單造冊" class="ui-widget" >
+  <label for="tags">考試單位: </label>
+  <input id="tags" class="<?echo STYLE;?>" sql="select" type="autocomplete" db="toyota" table="department" field="name,department_id" key="name" onfocus="setAutocomplete('tags');"/>
+  <label for="tags1">考試欄位名稱: </label>
+  <input id="tags1" class="<?echo STYLE;?>" sql="select" type="autocomplete" db="toyota" table="user" field="name,user_id" key="name" onfocus="setAutocomplete('tags1');"/>
+  <br>
+  <label for="tags2">考試日期: </label>
+  <input id="tags2" class="<?echo STYLE;?>" onclick="setDatetimePicker('tags2','09:00:00');"/>
+</div>

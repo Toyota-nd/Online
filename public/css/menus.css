@@ -1,0 +1,12 @@
+#showcase {
+	BACKGROUND: #6f9c6f
+}
+DL.menus_list DT {
+	FONT-SIZE: 1.5em; BACKGROUND: #6f9c6f; MARGIN: 3px 0px
+}
+#foot {
+	BACKGROUND: #8fbc8f
+}
+DL.menus_list DD.nil {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}

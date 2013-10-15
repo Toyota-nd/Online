@@ -1,0 +1,26 @@
+<?
+echo $this->headLink()
+			->setStylesheet($this->baseUrl().'/css/ui.jqgrid.css')
+			->setStylesheet($this->baseUrl().'/css/themes/pepper-grinder/jquery.ui.theme.css');	
+?>
+<script src="<?echo $this->baseUrl();?>/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/grid.locale-zh_tw.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/dtable.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/masterdetail.js" type="text/javascript"></script>
+<div id="MasterDetail" style="overflow:scroll; width:100%; height:100%;">
+	<table id="MasterGrid0" join type="edit,search" sql="editgrid" db="toyota" 
+		table="exampaper" value= "延長考卷的考試時間" 
+		title="考卷編號,考卷名稱,延長時間" 
+		field="exampaper_id,name,remainder" 
+		key="exampaper_id"
+		where="remainder>0">
+	</table>
+	<div id="mpager0"></div>
+
+<hr />
+<span id="spaMsg"></span>
+<br />
+</div>
+
+

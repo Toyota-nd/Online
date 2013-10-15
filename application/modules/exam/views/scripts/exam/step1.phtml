@@ -1,0 +1,53 @@
+<?
+echo $this->headLink()
+			->setStylesheet($this->baseUrl().'/css/ui.jqgrid.css');
+?>
+<script src="<?echo $this->baseUrl();?>/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/grid.locale-zh_tw.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/dtable.js" type="text/javascript"></script>
+<img id="step" src="<?echo $this->baseUrl();?>/images/step1.jpg">
+
+<div id="MasterDetail" style="overflow-y: auto;overflow-x: hidden; width:100%; height:75%;">
+	<table id="MasterGrid0" join type="edit,add,del,search" sql="editgrid" db="toyota" 
+		table="exam" value= "新增測驗Step1" 
+		title="測驗代號,測驗名稱,測驗日期時間,測驗時間,及格分數" 
+		field="exam_id,name,begindate,limittime,passing" 
+		datatype="string,string,string,datetime,integer,boolean"
+		key="exam_id" >
+	</table>
+	<div id="mpager0"></div>
+<!--
+<table id="listTable" type="edit" sql="editgrid" db="toyota" table="user" value= "帳號管理" name="代號,帳號,姓名,角色" field="user_id,name,cname,role" key="user_id" where= "user_id='<?//echo $this->user->user_id?>'"></table>
+--> 
+
+<hr />
+<input type="button"  value="上一步" class="<?echo ACTIVE_STYLE;?>"  onclick= "window.location.href='<?echo $this->baseUrl();?>/exam/exam/addexam'">
+<input type="button"  value="下一步" class="<?echo ACTIVE_STYLE;?>"  onclick= "window.location.href='<?echo $this->baseUrl();?>/exam/exam/step2'">
+</div>
+
+<span id="spaMsg" class="<?echo ERROR_STYLE;?>" title="<?echo $this->module . '/' . $this->controller . '/' . $this->action;?>">
+<?echo $this->status;?>
+</span>
+<?
+/*
+ name, exam_id, user_id, department_id, limittime,
+ 考試名稱　exam_id, user_id, department_id 
+ 
+  <label for="begindate">測驗日期時間: </label>
+  <input id="begindate" class="<?echo STYLE;?>" onfocus="setDatetimePicker(this,'09:00:00');"/>
+  <br>
+  <label for="limittime">考試時間(分鐘): </label>
+  <input id="limittime" class="<?echo STYLE;?>" sql="select" type="text" db="toyota" table="exam" field="limittime" key="exam_id" onchange="setFormula(this,'*60');"/>
+  <label for="passing">及格分數: </label>
+  <input id="passing" class="<?echo STYLE;?>" sql="select" type="text" db="toyota" table="exam" field="passing" key="exam_id" onchange="setFormula(this,'');"/>
+ 
+*/
+?>
+<!-- table='插入用的明細表如考卷表,查詢用主表如考試' key='主表上的主鍵[0],樹狀結構最下階(自我聯合主表的主鍵如部門表)[1],樹狀結構葉子(與自我聯合主表所屬的明細主鍵)[2]，如員工表)' 
+template='含有變數位置，與插入欄位對應的運算表示式模板',padding=填充模板變數位置對應key的索引，如0,1,2,...，數目要與模板變數一致。
+-->
+<div id= "div_tags" title="選擇考試代號" class="ui-widget database" sql='insert' type='treeview' db='toyota' table='exampaper,exam' key='exam_id,department_id,user_id' field='name,exam_id,department_id,user_id,remainder,limittime' template="concat(concat(name,?),?),?,?,?,limittime,limittime" padding='1,2,0,1,2'>
+  <label for="exam_id">考試代號: </label>
+  <input id="exam_id" class="<?echo STYLE;?>" sql="select" type="autocomplete" db="toyota" table="exam" field="name,exam_id" key="name" onfocus="setAutocomplete(this);"/>
+</div>

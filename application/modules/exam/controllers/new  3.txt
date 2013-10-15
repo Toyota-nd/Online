@@ -1,0 +1,164 @@
+	public function fetchArray($values) {
+		$select = $this->getDbTable()->select();
+		Zend_Debug::dump($select);
+		$resultSet = $this->getDbTable()->fetchAll($select);
+	    $entries   = array();
+	    foreach ($resultSet as $row) {
+	        $entry = new Campaign_Model_Campaign();
+	        $entry
+			->setCampaign_id($row->campaign_id)
+			->setName($row->name)
+			->setYear($row->year)
+			->setEnrollment($row->enrollment)
+			->setFinalist($row->finalist)
+			->setWinner($row->winner)
+			->setSubmit($row->submit)
+			->setDue($row->due)
+			->setAccept($row->accept)
+			->setPublished($row->published)
+			->setCreated($row->created)
+		;
+        $entries[] = $entry;
+        }
+        return $entries;
+		
+		//return get_object_vars($resultSet);
+	}
+	
+	Controller...
+	    public function  viewAction()
+    {
+    }
+    /*
+    public function  recordsAction()
+    {
+		$campaign_mapper = new Campaign_Model_CampaignMapper();
+		$data = $campaign_mapper->_fetchAll();
+		$dojoData= new Zend_Dojo_Data('campaign_id',$data,'campaign_id');
+		$jdata = $dojoData->toJson();
+		echo $jdata;
+		//Zend_Debug::dump($jdata);
+		exit();
+    }
+	*/
+
+/*		
+		if ($request->isPost()) {
+//			if ($form->isValid($request->getPost())) {
+				if (Zend_Auth::getInstance()->hasIdentity()) {
+					// We're authenticated and to write any code where you want!
+					$campaign = new Campaign_Model_Campaign();
+					$campaign_mapper = new Campaign_Model_CampaignMapper();
+					$values = $form->getValues();
+					//Zend_Debug::dump($campaign);
+					$this->view->paginator = 
+					$campaign_mapper->fetchAll(
+						$campaign->setCampaign($values['campaign_id'],1,10
+						));
+					
+					$this->view->message = '<span color="#FF0000">To submit successfully!</span>';
+				} 
+//			}
+		}
+*/		
+
+
+<!--C:\AppServ\www\cca\application\modules\campaign\views\scripts\campaign\listcampaign.phtml
+-->
+	<div id="view-content">
+		<?php
+		echo $this->form->setAction($this->url()) . '<br>';
+		
+	/*	Zend_Debug::dump($this->entries);
+		foreach ($this->entries as $item) {
+			echo $item->getName() . '<br>';
+		}
+		echo $this->message . '<br>';*/
+		?>
+	</div>
+<script type="text/javascript">
+    dojo.require("dojox.data.QueryReadStore");
+    dojo.require("dojox.grid.Grid");
+    dojo.require("dojo.parser");
+</script>             
+<body class="tundra">
+    <div dojoType="dojox.data.QueryReadStore" jsId="activeStore" url="/cca/public/dojo/dojox/data/tests/stores/QueryReadStore.php" ></div>
+    <div dojoType="dojox.grid.DataGrid" jsId="model" rowsPerPage="10" store="activeStore"></div>
+    <table id="activePastes" dojoType="dojox.grid.Grid" model="model" style="height:300px; width:700px;">
+        <thead>
+            <tr>
+                <th field="campaign_id">Campaign Id</th>
+                <th field="name">Name</th>
+                <th field="year">Year</th>
+                <th field="enrollment">Enrollment</th>
+            </tr>
+        </thead>
+    </table>
+</body>
+
+	
+<?if (!empty($this->paginator)):?>
+	<table style="border-width:1px; border-style:solid">
+	<?foreach($this->paginator as $record) :?>
+	<tr>
+	<td><?echo $record->getCampaign_id();?></td>
+	<td><?echo $record->getName();?></td>
+	<td><?echo substr($record->getYear(),0,10);?></td>
+	<td><?echo $record->getEnrollment();?></td>
+	<td><?echo $record->getFinalist();?></td>
+	<td><?echo $record->getWinner();?></td>
+	<td><?echo substr($record->getSubmit(),0,10);?></td>
+	<td><?echo substr($record->getDue(),0,10);?></td>
+	<td><?echo substr($record->getAccept(),0,10);?></td>
+	<td><?echo substr($record->getPublished(),0,10);?></td>
+	<td><?echo substr($record->getCreated(),0,10);?></td>
+	</tr>
+	<?endforeach?>
+	</table>	
+	<?= $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml'); ?>
+<?else :?>
+	The results is null! Maybe the post is invalid or none of input! <br>
+<?endif?>
+
+	
+
+	
+		public function _select($tables,$columns) {
+		$first= $tables[key($tables)];
+		if (preg_match('/^_/',$alias)) {
+			$first =  preg_replace('/^_([a-zA-Z]*)/', '$1', $first);
+		} 
+		$others = array_slice($tables,1,count($tables)-1);
+		$this->db = Zend_Controller_Front::getInstance()
+				->getParam("bootstrap")
+				->getResource("db")
+				->select()
+				->from(array($first=>$first),$columns)
+				;
+		$cnt = count($tables);
+		if ($cnt > 1) {
+		//JOIN next ON next.master_id = previous.master_id
+			$previous = $first;
+			for ($i=0;$i<$cnt;$i++) {
+				$alias = key($others);
+				if (!empty($alias)) {
+					if (preg_match('/^_/',$alias)) {
+						$alias =  preg_replace('/^_([a-zA-Z]*)/', '$1', $alias);
+						$master = $alias;
+						$detail = $previous;
+					} else {
+						$master = $previous;
+						$detail = key($others);
+					}
+					Zend_Debug::dump($alias . '=>' . current($others) . ',' . $master . '_id');
+					$this->db = $this->db
+						 ->join(array($alias=>current($others)), $alias . '.' . 
+							$master . '_id = ' . $previous . '.' . $master . '_id')
+						 ;
+				}
+				$previous = $alias;
+				next($others);
+			}
+		}
+		return $this;
+	}

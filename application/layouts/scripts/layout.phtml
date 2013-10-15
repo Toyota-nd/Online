@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="ctl00_Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<?php 
+	echo $this->doctype(); 
+	$this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+	$this->headTitle('The General Purpose Web Site Management System')->setSeparator(' - ');
+    echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/site.css');
+    echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/style.css');
+    echo $this->headLink()->appendStylesheet($this->baseUrl().'/css/layout.css');
+	$this->jQuery()->setLocalPath('/cca/public/js/jquery-1.8.3.min.js')
+         ->addStylesheet('/cca/public/css/datepicker.css')
+         ->addStylesheet('/cca/public/css/normalize.css');
+	echo $this->jQuery();
+?> 
+<!-- Keep the http-equiv meta tag for IE8 -->
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<!-- Start css3menu.com HEAD section -->
+<link rel="stylesheet" href="index_layout.phtml_files/css3menu1/style.css" type="text/css" />
+<!-- End css3menu.com HEAD section -->
+</head>
+<body class="layout">
+AAA
+<?echo $this->message;?>
+</body>
+</html>

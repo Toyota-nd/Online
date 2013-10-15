@@ -1,0 +1,98 @@
+<?php 
+	echo $this->doctype(); 
+	echo $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
+	echo $this->headTitle('TOYOTA 南都汽車測驗系統')->setSeparator(' - ');
+	echo $this->headLink()
+		//->appendStylesheet($this->baseUrl().'/css/site.css')
+		->appendStylesheet($this->baseUrl().'/css/menu_style.css')
+		->appendStylesheet($this->baseUrl().'/css/index.css')
+		->appendStylesheet($this->baseUrl().'/css/index_layout.css')
+		->appendStylesheet($this->baseUrl().'/css/jquery-ui.css')
+		->appendStylesheet($this->baseUrl().'/css/'.$this->theme.'/jquery-ui.css')
+		->appendStylesheet($this->baseUrl().'/css/'.$this->theme.'/jquery-ui-theme.css')
+		->appendStylesheet($this->baseUrl().'/css/'.$this->theme.'/jquery-ui-min.css')
+		//->appendStylesheet($this->baseUrl().'/css/backstage.css')
+		->appendStylesheet($this->baseUrl().'/css/treeview.css')	
+		->appendStylesheet($this->baseUrl().'/css/datepicker.css');
+		//->appendStylesheet($this->baseUrl().'/css/normalize.css'); //The dropdown-menu's width is incorrect!
+		
+    	
+?> 
+<script src="<?echo $this->baseUrl();?>/js/jquery.menu.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/jquery.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/jquery-ui.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/treeview.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/json2.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/script.js" type="text/javascript"></script>
+
+<script>var baseURL="<?echo $this->baseUrl();?>";</script>
+
+<!-- Keep the http-equiv meta tag for IE8 -->
+<meta http-equiv="X-UA-Compatible" content="IE=8" />
+<!-- Start css3menu.com HEAD section -->
+<link rel="stylesheet" href="index_layout.phtml_files/css3menu1/style.css" type="text/css" />
+<!-- End css3menu.com HEAD section -->
+</head>
+<body class=<?echo STYLE;?>>
+	<div id='header1'>
+		<img src="<?echo $this->baseUrl();?>/images/toyota.jpg"></div>
+		<div class=<?echo STYLE;?> id='menu'>
+			<ul>
+				<li><a href=<?echo $this->baseUrl();?>>回首頁</a></li>
+				<li><a href="<?echo $this->baseUrl();?>/default/index/about" title="關於南都">關於南都</a></li>
+				<li><a onclick='$( "#content1" ).load( "login.html" );'title="測驗結果">測驗結果</a></li>
+				<li><a href="<?echo $this->baseUrl();?>/default/index/description" title="測驗說明">測驗說明</a></li>
+				<li><a href="<?echo $this->baseUrl();?>/auth/index" title="登入系統">登入測驗系統</a></li>
+				<li><a href="<?echo $this->baseUrl();?>/auth/changepw" title="變更密碼">變更密碼</a></li>
+			</ul>
+		</div>
+		
+<?php echo $this->layout()->content; ?>
+
+<div class=<?echo STYLE;?> style="overflow-y:scroll; width:100%; height:100%;">
+			<table align="center">
+					<td>
+						<marquee class=<?echo STYLE;?> onMouseOver="this.stop()" onMouseOut="this.start()"  width="400" height="20" direction=" right " scrolldelay="30" 
+						scrollamount="3">南都測驗管理系統即將上線，敬請期待~
+						</marquee>
+					</td>
+			</table>
+			<fieldset class=<?echo STYLE;?>>
+				<legend class=<?echo STYLE;?>>
+				最新公告
+				</legend>
+					<?
+						echo $this->latest();
+					?>
+			</fieldset>
+			
+			<fieldset class=<?echo STYLE;?>>
+					<legend class=<?echo STYLE;?>>
+					榮譽榜
+					</legend>
+						<table width="100%">
+						<td width="80%">
+							<table border="1">
+								<tr>
+									<th>部門</th>
+									<th>最佳成績</th>
+								</tr>
+									<?echo $this->rank();?>
+							</table>
+						</td>
+						<td>
+							<table border="1">	
+									<div>
+										<iframe width="auto" height="315px" src="//www.youtube.com/embed/pKuCxNMw9Cg?rel=0&autoplay=0" frameborder="0" allowfullscreen></iframe>		
+									</div>
+								
+							</table>
+						</td>
+						</table>
+			</fieldset>		
+				
+</div>	
+	<div class=<?echo STYLE;?> align="center">南都汽車股份有限公司&copy;版權所有<br>710台南市永康區中正南路214號 電話：06-253-7866，建議使用IE瀏覽器1024X768</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?php $this->headTitle('privilege violated'); ?>
+<center><b>登入的角色權限不足，請登入正確角色<br></b></center>
+<center><b>目前登入的角色權限如下:<br></b></center>
+<ul>
+    <?php 
+        foreach ($this->roles as $name) {
+            echo '<li><a href="'.$this->baseUrl('auth/privilege') . '/role/' . $name . '">' . $name . '</a><br/></li>';
+        }
+    ?>
+</ul>
+
+<?php if (isset($this->controllers)): ?>
+    <h2><?php echo $this->role; ?>'s Controllers:</h2>
+    <ul>
+        <?php
+            $array = $this->controllers;
+            sort($array);
+            foreach ($array as $controller) {
+                $font = ($controller['allowed'])?'green':'red';
+                echo '<li><a href="'.$this->baseUrl('auth/privilege') . '/role/' . $this->role . '/cont/'. $controller .'" style="color:'.$font.';">'. $controller .'</a></li>';    
+            }   
+        ?>
+    </ul>
+
+    <?php if (isset($this->controller)): ?>
+        <h2><?php echo $this->role ."'s, ". $this->controller;?> Actions:</h2>
+        <ul>
+            <?php 
+                $array = $this->actions;
+                sort($array);
+                foreach ($array as $action)
+                {
+                    $font = ($action['allowed'])?'green':'red';
+                    echo '<li><font style="color:'.$font.';">'. $action['action'] .'</font></li>';
+                }
+            ?>
+        </ul>
+    <?php endif;?>
+<?php endif; ?>
+

@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<form action="insert.php" method="post">
+請輸入名稱name: <input type="text" name="name" /><br />
+請輸入日期created_at: <input type="text" name="created_at" /><br />
+<input type="submit" />
+</form>
+
+<!--/*
+<form id="form1" name="form1" method="post" action="<?php echo $PHP_SELF; ?>">
+            Employee List :
+            <select cca_notice_group Name='NEW'>
+            <option value="">--- Select ---</option>
+            <?
+                mysql_connect ("localhost","root","bio1234");
+                mysql_select_db ("test");
+                $select="test";
+                if (isset ($select) && $select!=""){
+                $select=$_POST ['NEW'];
+            }
+            ?>
+            <?
+                $list=mysql_query("select * from cca_notice_group order by group_id asc");
+            while($row_list=mysql_fetch_assoc($list)){
+                ?>
+                    <option value="<? echo $row_list['group_id']; ?>"<? if($row_list['group_id']==$select){ echo "selected"; } ?>>
+                                         <?echo $row_list['name'];?>
+                    </option>
+                <?
+                }
+                ?>
+            </select>
+            <input type="submit" name="Submit" value="Select" />
+        </form>
+		-->
+</body>
+</html>

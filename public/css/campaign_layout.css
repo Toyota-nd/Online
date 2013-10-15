@@ -1,0 +1,19 @@
+body.index_layout {
+    margin: 0 5px;
+    font-family: Helvetica, sans-serif;
+	background-color:#006633;
+	text-align:left;
+} 
+table#maintable {width: 100%; height: 100%; border-width:1px; border-style:solid; cellpadding: 0; cellspacing: 0;}
+td#Banner1_1 {width: 100%; height: 15%; background-color: #99ff66; text-align: center;}
+td#Content2_1 {width: 15%; height: auto; background-color: #99ff66;}
+table#subtable {width: auto; height:auto; border-width:1px; border-style:solid; cellpadding: 0; cellspacing: 0;}
+td #Subarea1_1_in_Info2_1{width: 100%; height: 100%; background-color: #99ff66;}
+td #Subarea2_1_in_Info2_1{width: 100%; height: 100%; background-color: #99ff66;}
+td #Subarea3_1_in_Info2_1{width: 100%; height: 100%; background-color: #99ff66;}
+td#Content2_2 {width: 70%; height: auto; background-color: #99ff66;}
+td#Content2_3 {width: 15%; height: auto; background-color: #99ff66;}
+table#subtable {width: auto; height:auto; border-width:1px; border-style:solid; cellpadding: 0; cellspacing: 0;}
+td #Subarea1_1_in_Info2_3{width: 100%; height: 100%; background-color: #99ff66;}
+td #Subarea2_1_in_Info2_3{width: 100%; height: 100%; background-color: #99ff66;}
+td#Banner3_1 {width: 100%; height: 15%; background-color: #99ff66; text-align: center;}

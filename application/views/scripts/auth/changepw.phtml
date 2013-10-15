@@ -1,0 +1,8 @@
+<?php// $this->headTitle('變更密碼'); ?>
+<div id="popup" action="<?echo $this->url();?>" goto="exam/index/home" title="變更密碼" style="display:none;">
+	<?echo $this->loggedInAs();?>
+	<? echo $this->form->setAction($this->url());?>
+	<a href="<?echo $this->baseUrl().'/auth/sendpw';?>" style="text-decoration: true" target="_self">[忘記密碼]	</a>
+	<a href="<?echo $this->baseUrl().'/exam/user/adduser';?>" style="text-decoration: true" target="_self">[註冊帳號]</a><br/>
+	<span id="message"></span>
+</div>

@@ -1,0 +1,118 @@
+#content {width:700px;
+		 height:auto;
+		 float:left;
+		 background:#FFFF99;
+		}
+
+#header1  {width:px;
+           height:auto;
+           text-align:left;
+           background:;
+           margin:0 auto;
+          }
+
+#content1 {width:100%;
+           float:left;
+           height:auto;
+           background:;
+          }
+#footer1  {width:100%;
+          clear:left;
+          height:100%;
+		  font-size:;
+		  background:#A3CC29;
+          margin:0 auto 0 auto;
+          }
+
+ul{
+	margin:0;
+	padding:0;
+}
+li{
+	list-style:none;
+	text-align:left;
+}
+
+li.menu{
+	/* The content1 list elements */
+	margin: 0px auto;
+	/*padding:2px 10px;*/
+	width:92%;
+}
+li.button a{
+	/* The section titles */
+	display:block;
+	font-family:º–∑¢≈È,BPreplay,Arial,Helvetica,sans-serif;
+	font-size:20px;
+	height:5%;
+	overflow:hidden;
+	text-align:center;
+	padding: 5px 10px;
+	position:relative;
+	width:80%;
+	border:1px solid #40392C;
+}
+
+li.button a:hover{
+	/* Removing the inherited underline from the titles */
+	text-decoration:none;
+}
+
+li.button a span{
+	/* This span acts as the right part of the section's background */
+	height:44px;
+	position:absolute;
+	right:0;
+	top:0;
+	width:4px;
+	display:block;
+}
+
+/* Setting up different styles for each section color */
+
+li.button a.blue{background:url(images/) repeat-x top left; color:#FFFFFF;}
+li.button a.blue span{ background:url(images/) repeat-x top right;}
+
+li.button a.orange{background:url(../images/orange.png) repeat-x top left; color:#000000;}
+li.button a.orange span{ background:url(../images/orange.png) repeat-x top right;}
+
+/* The hover effects */
+
+li.button a:hover{ background-position:bottom left;}
+li.button a:hover span{ background-position:bottom right;}
+
+.dropdown{
+	/* The expandable lists */
+	display:none;
+	padding-top:5px;
+	width:98%;
+}
+
+.dropdown li{
+	/* Each element in the expandable list */
+	background-color:#EEEEEE;
+	font-size:18px;	
+	border:1px solid #40392C;
+	color:#000000;
+	margin:2px 2px;
+	padding:4px 5px;
+}
+.clear{
+	clear:both;
+}
+a, a:visited {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+p{
+	/* The tut info on the bottom of the page */
+	padding:10px;
+	text-align:center;
+}
+		

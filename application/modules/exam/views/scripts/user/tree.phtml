@@ -1,0 +1,42 @@
+	<!--
+	部門:
+	<div id="div_1">
+	<select id="select_1" class="database" type="select" sql="select" db="toyota" table="exam" field="title" key="exam_id" pk="2">
+		<option value="服務部">服務部</option>
+		<option value="維修部">維修部</option>
+		<option value="TEST">TEST</option>
+	</select>
+	</div>
+	<div id="zend1">
+	<input id="zend_add" type="button" value="點我拿一張考卷" db="toyota" table="exampaper" field="[name,exam_id,user_id,department_id]" key="exampaper_id" values="(exam.name,exam.exam_id,user.user_id,department_id)" pk="2"/>
+	</div>
+	<div id="gChart" class="chart" style="width: 450px; height: 300px;"></div>
+	-->
+
+
+	<div id="exampaper_id_div">
+		<select id="exampaper_id" class="database" type="select" sql="select" db="toyota" table="exampaper" field="name,exampaper_id" key="user_id" pk="<?echo $this->user->user_id?>">
+			<option value="21">請選擇</option>
+			<option value="21">更新表單</option>
+		</select>
+	</div>
+	<div id="countdown">
+		<input id="timer" type="button" value="顯示樹狀圖"/>
+	</div>
+	<div id="JQTreeview" class="database" type="auto" sql="select" db="toyota" table="questions,answers" field="name,multians" key="questions_id" where="questions.exampaper_id=21">
+	</div> 
+	<!--
+	需要改參數:
+	1. timer.js==> var exampaper_id = 2;
+	2. div標籤class="database"內where屬性==> "questions.exampaper_id=2"
+	-->	
+	<!--
+	<div id="zend2">
+	<input id="zend_add" sql="select" type="label" value="查看考卷分數" db="toyota" table="exampaper" field="[exampaper_id,score]" key="exampaper_id" pk="21"/>
+	</div>
+	<div id="JQTreeview" class="database" type="checkbox" sql="select" db="toyota" table="question,answer" field="name,multians" key="question_id">
+	</div> 
+	
+	<div id="JQTreeview" class="database" type="radio" sql="select" db="toyota" table="question,answer" field="name,singleans" key="question_id">
+	</div> 
+	-->	

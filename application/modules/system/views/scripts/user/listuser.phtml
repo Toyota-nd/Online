@@ -1,0 +1,36 @@
+<!--C:\AppServ\www\cca\application\modules\system\views\scripts\user\listuser.phtml
+-->
+	<div id="view-content">
+		<?php
+		echo $this->form->setAction($this->url()) . '<br>';
+		echo $this->message . '<br>';
+		?>
+	</div>
+<?if (!empty($this->paginator)):?>
+	<table style="border-width:1px; border-style:solid">
+	<?foreach($this->paginator as $record) :?>
+	<tr>
+	<td><?echo substr($record->getUser_id(),0,10);?></td>
+	<td><?echo substr($record->getName(),0,10);?></td>
+	<td><?echo substr($record->getPassword(),0,10);?></td>
+	<td><?echo substr($record->getCname(),0,10);?></td>
+	<td><?echo substr($record->getEname(),0,10);?></td>
+	<td><?echo substr($record->getEmail(),0,10);?></td>
+	<td><?echo substr($record->getPid(),0,10);?></td>
+	<td><?echo substr($record->getBirthday(),0,10);?></td>
+	<td><?echo substr($record->getRole(),0,10);?></td>
+	<td><?echo substr($record->getCreated(),0,10);?></td>
+	<td><?echo substr($record->getSchool(),0,10);?></td>
+	<td><?echo substr($record->getType(),0,10);?></td>
+	<td><?echo substr($record->getAffiliation(),0,10);?></td>
+	<td><?echo substr($record->getDepartment(),0,10);?></td>
+	<td><?echo substr($record->getPosition(),0,10);?></td>
+	<td><?echo substr($record->getFulltime(),0,10);?></td>
+	<td><?echo substr($record->getSupervisor(),0,10);?></td>
+	</tr>
+	<?endforeach?>
+	</table>
+	<?= $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml'); ?>
+<?else :?>
+	The results is null! Maybe the post is invalid or none of input! <br>
+<?endif?>

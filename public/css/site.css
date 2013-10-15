@@ -1,0 +1,333 @@
+body.index_layout
+{
+    margin: 0 5px;
+    font-family: Helvetica, sans-serif;
+	background-color:#006633;
+	text-align:left;
+} 
+body.auth_layout
+{
+    margin: 0 5px;
+    font-family: Helvetica, sans-serif;
+	background-color:#006633;
+	text-align:left;
+} 
+a:link, a:visited
+{
+	color: #0398CA;
+}
+a 
+{
+	color: #000000;
+}
+span #zf-name
+{
+	color: #91BE3F;
+}
+span #highlight 
+{
+	color: #FFFF00;
+}
+div #welcome
+{
+	color: #FFFFFF;
+	background-image: url(../images/bkg_header.jpg);
+	width:  800px;
+	height: 420px;
+	border: 2px solid #444444;
+	overflow: hidden;
+	text-align: center;
+}
+div#more-information
+{
+	background-image: url(../images/bkg_body-bottom.gif);
+	height: 100%;
+}
+#header
+{
+	width:80%;
+	margin:0 auto;
+	text-align:center;
+	font-size: 1.4em;
+	height: 30px;
+}
+#content
+{
+	width:100%;
+	margin:0 auto;
+	text-align:left;
+}
+#message
+{
+	width:80%;
+	color: #FF0000;
+	margin:0 auto;
+	text-align:left;
+}
+#logged-in-as {
+	margin-top: 0px;
+	float:center;
+}
+h1
+{
+	font-size: 1.4em;
+	color: #004000;
+	font-weight: normal;
+}
+
+form dt 
+{
+    width: 100px;
+    display: block;
+    float: left;
+    clear: left;
+}
+form dd 
+{
+    margin-left: 0;
+    float: left;
+    
+}
+
+
+/* CSS Document */
+body {
+background-color: #ffffff;
+
+/* for pull-down menu to work in IE6*/
+behavior:url("csshover2.htc");
+
+}
+
+/* pull-down mainmenu css */
+.mainmenu{
+
+width: 10em;
+padding: 0;
+float: left;
+
+}
+.mainmenu ul {
+float: left;
+width: 100%;
+list-style: none;
+line-height: 1;
+color:#0066CC;
+background: #99CC66;
+
+padding: 0;
+border: solid #99CC66;
+border-width: 1px 1px;
+margin: 0 0 0 0;
+}
+
+.mainmenu a, .mainmenu a:visited {
+display: block;
+width: 100%;
+font-family:"Times New Roman", Times, serif;font-size:16px;font-weight:500;font-style:normal;text-decoration:underline;
+color: #0066CC;
+text-decoration: none;
+padding: 3px 0em;
+text-indent:1em;
+margin: 0;	
+
+}
+.mainmenu li li a{padding:3px;text-indent:0;}
+.mainmenu ul ul a{
+width:100%;
+height:100%;
+}
+.mainmenu ul a{
+width: 100%;
+}
+.mainmenu li  {
+float: left;
+width:100%;
+margin:0;
+padding:0;
+}
+
+.mainmenu ul li {float:left; position:relative; }
+.mainmenu ul li  {width:100%;} /* !!!!! */
+
+.mainmenu li ul {
+position: absolute;
+left: -999em;
+height: auto;
+width:8em;	
+background: #99FF66;
+font-weight: normal;
+border-width: 1px;
+margin: 0;
+}
+
+.mainmenu li li {
+width: 100% ; 
+}
+.mainmenu li a{width: 100% ; }
+.mainmenu li li a{
+width: 100%;
+}
+
+.mainmenu li ul  {
+margin: -2.1em 0 0 -0.3em;
+}
+.mainmenu li ul ul {
+margin: -2.1em 0 0 -0.3em;
+}
+.ul_ch, 
+.mainmenu li:hover ul ul,
+.mainmenu li li:hover ul ul,
+.mainmenu li li li:hover ul ul,
+.mainmenu li li li li:hover ul ul,
+.mainmenu li li li li li:hover ul ul
+{
+left: -999em;
+}
+.mainmenu li:hover ul,
+.mainmenu li li:hover ul,
+.mainmenu li li li:hover ul,
+.mainmenu li li li li:hover ul,
+.mainmenu li li li li li:hover ul
+{
+left: 100%; /* !!! */
+}
+.mainmenu li:hover>ul.ul_ch   
+{
+left: 100%; /* !!! */
+}
+
+.mainmenu li:hover{
+background: #00C000;
+}
+
+.mainmenu li:hover a,.mainmenu li:hover a:visited,.mainmenu li:hover a:hover,.mainmenu li a:hover{
+color:#0000FF;
+}
+.mainmenu li:hover li a, .mainmenu li li:hover li a, 
+.mainmenu li li li:hover li a, .mainmenu li li li li:hover li a,
+.mainmenu li:hover li a:visited, .mainmenu li li:hover li a:visited, 
+.mainmenu li li li:hover li a:visited, .mainmenu li li li li:hover li a:visited
+{
+color:#0066FF;
+}
+.mainmenu li li:hover, .mainmenu li li li:hover, 
+.mainmenu li li li li:hover , .mainmenu li li li li li:hover , .mainmenu li li li li li li:hover 
+{
+background: #00C000;
+z-index:9999;
+}
+.mainmenu li li:hover a,.mainmenu li li li:hover a, 
+.mainmenu li li li li:hover a, .mainmenu li li li li li:hover a
+{
+color: #0000FF; 
+}
+
+.mainmenu ul ul a, .mainmenu ul ul a:visited,
+.mainmenu li li a, .mainmenu li li a:visited
+{
+color: #0066FF;
+}
+.mainmenu ul ul a:hover,
+.mainmenu li:hover li:hover a,.mainmenu li:hover li:hover a:visited ,
+.mainmenu li:hover li:hover li:hover a,.mainmenu li:hover li:hover li:hover a:visited,
+.mainmenu li:hover li:hover li:hover li:hover a,.mainmenu li:hover li:hover li:hover li:hover a:visited ,
+.mainmenu li:hover li:hover li:hover li:hover li:hover a,.mainmenu li:hover li:hover li:hover li:hover li:hover a:visited,
+.mainmenu li:hover li:hover li:hover li:hover li:hover li:hover a,.mainmenu li:hover li:hover li:hover li:hover li:hover li:hover a:visited{
+color: #0000FF;
+}
+.mainmenu li:hover li:hover li a,.mainmenu li:hover li:hover li a:visited ,
+.mainmenu li:hover li:hover li:hover li a,.mainmenu li:hover li:hover li:hover li a:visited,
+.mainmenu li:hover li:hover li:hover li:hover li a,.mainmenu li:hover li:hover li:hover li:hover li a:visited,
+.mainmenu li:hover li:hover li:hover li:hover li:hover li a,.mainmenu li:hover li:hover li:hover li:hover li:hover li a:visited{
+color: #0066FF;
+}
+
+
+/* end of mainmenu css */
+
+.ui-datepicker td {
+    border: 1px solid #CCC;
+    padding: 0;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: solid #FFF;
+    border-width: 1px 0 0 1px;
+}
+
+input.ui-state-default {
+	font-size: 18px;
+}
+scrollbar-face-color {
+    color:inherit;
+}
+
+.database, .idatabase,
+.ui-state-default, .ui-state-active, .ui-state-highlight,
+.ui-state-error {
+	font-size: 18px;
+}
+.database input:hover, .idatabase input:hover {
+	background: #00C000;
+}
+
+/* css for timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; font-size:16px;}
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { float: left; clear:left; padding: 0 0 0 5px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 45%; }
+.ui-timepicker-div td { font-size: 150%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; padding: 0 5px 0 0; }
+.ui-timepicker-rtl dl dt{ float: right; clear: right; }
+.ui-timepicker-rtl dl dd { margin: 0 45% 10px 10px; }
+
+.ui-autocomplete {
+	max-height: 240px;
+	overflow-y: auto;
+	/* prevent horizontal scrollbar */
+	overflow-x: hidden;
+	/* add padding to account for vertical scrollbar */
+	/*padding-right: 60px;*/
+}
+#spaMsg {
+	height: 36px!important;
+	width: 100%!important;
+	overflow-y: auto!important;
+	overflow-x: auto!important;
+	z-index: 999999!important;
+}
+/*
+#progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .75;
+    background-color: #000;
+    z-index: 99999;
+}
+#progress div {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 4.5em;
+	height: 4.5em;
+	margin: -1em 0 0 -2.5em;
+	color: #fff;
+	font-weight: bold;
+	background: url("spinner_squares_circle.gif") no-repeat center center transparent;
+}
+*/
+.input-prompt {
+  position: absolute;
+  font-style: italic;
+  color: #aaa;
+  margin: 0.2em 0 0 0.5em;
+}

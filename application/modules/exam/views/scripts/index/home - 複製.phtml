@@ -1,0 +1,13 @@
+<?
+echo $this->user->user_id;
+echo $this->user->cname;
+echo $this->user->role;
+echo "<table border='1'>";
+foreach($this->message as $key => $val) {
+	echo "<tr>";
+	echo "<td>$key</td>";
+	echo "<td>$val</td>";
+	echo "</tr>";
+}
+echo "</table>";
+?>

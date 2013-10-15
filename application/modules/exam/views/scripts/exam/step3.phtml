@@ -1,0 +1,70 @@
+<?
+echo $this->headLink()
+			->setStylesheet($this->baseUrl().'/css/ui.jqgrid.css');
+?>
+<script src="<?echo $this->baseUrl();?>/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/grid.locale-zh_tw.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/dtable.js" type="text/javascript"></script>
+
+<img class="<?echo STYLE;?>" src="<?echo $this->baseUrl();?>/images/step3.jpg" height="90px">
+<div id="MasterDetail" style="overflow-y: auto;overflow-x: hidden; width:100%; height:80%;">	
+	<table id="MasterGrid0" join type="search" sql="editgrid" db="toyota"
+		table="exam" value= "1.考試任務分派"
+		title="考試代號,名稱,考試分類"
+		field="exam_id,name,title" 
+		key="exam_id"></table>
+	<div id="mpager0"></div>
+<!--
+<table id="listTable" type="edit" sql="editgrid" db="toyota" table="user" value= "帳號管理" name="代號,帳號,姓名,角色" field="user_id,name,cname,role" key="user_id" where= "user_id='<?//echo $this->user->user_id?>'"></table>
+-->
+<?
+	$this->form->addElement('submit', 'formsubmit', 
+		array(
+		'decorators' => $this->form->simpleDecorators,
+		'label'       => '製作考卷',
+		'class'		 => ACIVE_STYLE
+		));
+	$this->form->addElement('select','exam_id', 
+		array(
+		'decorators' => $this->form->genericDecorators,
+		'label' => '考試名稱',
+		'value' => '',
+		'class' => 'idatabase ' . ACIVE_STYLE,
+		'type' 	=> 'select',
+		'sql'	=> 'select',
+		'db'	=> 'toyota',
+		'table'	=> 'exam',
+		'field'	=> 'name,exam_id',
+		'name'	=> 'exam_id',
+		//'key'	=> 'user_id',
+		//'pk'	=> $this->user->user_id,
+		'multiOptions' => array(
+					'1'    => '請選擇',
+				),
+	));
+	echo $this->form->setAction($this->baseUrl().'/exam/exam/step3');
+?>
+	<table id="DetailGrid0" type="edit,add,del" sql="editgrid" db="toyota"
+	table="exampaper" value= "2.考卷"
+	title="考卷代號,名稱,員工代號,考卷編號"
+	field="exampaper_id,name,user_id,exam_id" 
+	key="user_id"></table>
+<div id="dpager0"></div>
+<input type="button"  value="上一步" class="ui-state-default"  onclick= "window.location.href='<?echo $this->baseUrl();?>/exam/exam/step2'">
+<input type="button"  value="下一步" class="ui-state-default"  onclick= "window.location.href='<?echo $this->baseUrl();?>/exam/exam/step4'">
+</div>
+<span id="spaMsg" class="<?echo ERROR_STYLE;?>" title="<?echo $this->module . '/' . $this->controller . '/' . $this->action;?>">
+</span>
+<div id= "div_tags" title="考卷名單造冊" class="ui-widget database" sql='insert' type='treeview' db='toyota' table='exampaper,exam' key='exam_id,department_id,user_id' field='name,exam_id,department_id,user_id,remainder,limittime' template="concat(concat(name,?),?),?,?,?,limittime,limittime" padding='1,2,0,1,2'>
+  <label for="exam_id">考試代號: </label>
+  <input id="exam_id" class="<?echo STYLE;?>" sql="select" type="autocomplete" db="toyota" table="exam" field="name,exam_id" key="name" onfocus="setAutocomplete(this);"/>
+</div>
+  <!--
+  <label for="tags1">考試欄位名稱: </label>
+  <input id="tags1" class="<?//echo STYLE;?>" sql="select" type="autocomplete" db="toyota" table="user" field="name,user_id" key="name" onfocus="setAutocomplete('tags1');"/>
+  <label for="tags2">考試日期: </label>
+  <input id="tags2" class="<?//echo STYLE;?>" onclick="setDatetimePicker('tags2','09:00:00');"/>
+  -->
+</div>
+

@@ -1,0 +1,29 @@
+<div class="mainmenu">
+<ul>
+      <li class="li_nc"><a href="/cca/public/index" target="_self" >首頁　　　　</a></li>
+      <li class="li_hc"><a href="#" target="_self" >競賽登記　　<img src="/cca/public/images/resultset_next.png" border=0></a>
+		  <ul class="ul_ch">
+			   <li class="li_nc"><a href="#"  >登記參賽</a></li>
+			   <li class="li_nc"><a href="#"  >修改內容</a></li>
+			   <li class="li_nc"><a href="#"  >歷史查詢</a></li>
+			   <li class="li_nc"><a href="#"  >團隊成員</a></li>
+		  </ul>
+      <li class="li_hc"><a href="#" target="_self" >競賽回報　　<img src="/cca/public/images/resultset_next.png"  border=0></a>
+		  <ul class="ul_ch">
+			   <li class="li_nc"><a href="#"  >入圍回報</a></li>
+			   <li class="li_nc"><a href="#"  >得獎回報</a></li>
+		  </ul>
+	  </li>
+      <li class="li_hc"><a href="#" target="_self" >跨院系團隊　<img src="/cca/public/images/resultset_next.png"  border=0></a>
+		  <ul class="ul_ch">
+			   <li class="li_nc"><a href="#"  >團隊申請</a></li>
+			   <li class="li_nc"><a href="#"  >得獎回報</a></li>
+		  </ul>
+      <li class="li_hc"><a href="#" target="_self" >競賽回報　　<img src="/cca/public/images/resultset_next.png"  border=0></a>
+		  <ul class="ul_ch">
+			   <li class="li_nc"><a href="#"  >歷年得獎作品觀摩</a></li>
+			   <li class="li_nc"><a href="#"  >競賽注意事項</a></li>
+		  </ul>
+	  </li>
+</ul>
+</div>

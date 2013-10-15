@@ -1,0 +1,29 @@
+<?
+echo $this->user->user_id;
+echo $this->user->cname;
+echo $this->user->role;
+
+	echo "<table border='1'>";
+	foreach($this->message as $val) {
+		echo "<tr>";
+	//	echo "<td>$key</td>";
+		echo "<td><marquee>$val</marquee></td>";
+		echo "</tr>";
+	}
+echo "</table>";
+echo $this->headLink()
+		->appendStylesheet($this->baseUrl().'/css/ui.slider.extras.css')
+
+?>
+
+<script src="<?echo $this->baseUrl();?>/js/selectToUISlider.jQuery.js" type="text/javascript"></script>
+<select name="speed" id="speed">
+  <option value="早期">1980</option>
+  <option value="1990">1990</option>
+  <option value="中期" selected="selected">2000</option>
+  <option value="2010">2010</option>
+  <option value="近期">2020</option>
+</select>
+<script>
+$('select').selectToUISlider();
+</script>

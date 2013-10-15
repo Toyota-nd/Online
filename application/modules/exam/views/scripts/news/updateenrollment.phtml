@@ -1,0 +1,40 @@
+<!--C:\AppServ\www\cca\application\modules\campaign\views\scripts\enrollment\updateenrollment.phtml
+-->
+	<div id="view-content">
+		<?php
+		echo $this->form->setAction($this->url()) . '<br>';
+		echo $this->message . '<br>';
+		?>
+	</div>
+<?if (!empty($this->paginator)):?>
+	<table style="border-width:1px; border-style:solid">
+	<?foreach($this->paginator as $record) :?>
+	<tr>
+	<td><?echo substr($record->getCampaign(),0,10);?></td>
+	<td><?echo substr($record->getEnrollment_id(),0,10);?></td>
+	<td><?echo substr($record->getName(),0,10);?></td>
+	<td><?echo substr($record->getMyabstract(),0,10);?></td>
+	<td><?echo substr($record->getType(),0,10);?></td>
+	<td><?echo substr($record->getStatus(),0,10);?></td>
+	<td><?echo substr($record->getAgreement(),0,10);?></td>
+	<td><?echo substr($record->getCreated(),0,10);?></td>
+	<td><?echo substr($record->getLastupdate(),0,10);?></td>
+	<td><?echo substr($record->getCampaign_id(),0,10);?></td>
+	<td><?echo substr($record->getUsers_id(),0,10);?></td>
+	<td><?echo substr($record->getStudents_id(),0,10);?></td>
+	<td><?echo substr($record->getGroup_id(),0,10);?></td>
+	<td><?echo substr($record->getWorkflow_id(),0,10);?></td>
+	<td><?echo substr($record->getMyresource_id(),0,10);?></td>
+	<td><?echo substr($record->getEvent_id(),0,10);?></td>
+	<td><?echo substr($record->getCharacter_id(),0,10);?></td>
+	<td><?echo substr($record->getWorkpackage_id(),0,10);?></td>
+	<td><?echo substr($record->getCalendar_id(),0,10);?></td>
+	<td><?echo substr($record->getMember_id(),0,10);?></td>
+	<td><?echo substr($record->getSurvey_id(),0,10);?></td>
+	</tr>
+	<?endforeach?>
+	</table>
+	<?= $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml'); ?>
+<?else :?>
+	The results is null! Maybe the post is invalid or none of input! <br>
+<?endif?>

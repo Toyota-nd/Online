@@ -1,0 +1,30 @@
+<!--C:\AppServ\www\cca\application\modules\campaign\views\scripts\campaign\deletecampaign.phtml
+-->
+	<div id="view-content">
+		<?php
+		echo $this->form->setAction($this->url()) . '<br>';
+		echo $this->message . '<br>';
+		?>
+	</div>
+<?if (!empty($this->paginator)):?>
+	<table style="border-width:1px; border-style:solid">
+	<?foreach($this->paginator as $record) :?>
+	<tr>
+	<td><?echo substr($record->getCampaign_id(),0,10);?></td>
+	<td><?echo substr($record->getName(),0,10);?></td>
+	<td><?echo substr($record->getYear(),0,10);?></td>
+	<td><?echo substr($record->getEnrollment(),0,10);?></td>
+	<td><?echo substr($record->getFinalist(),0,10);?></td>
+	<td><?echo substr($record->getWinner(),0,10);?></td>
+	<td><?echo substr($record->getSubmit(),0,10);?></td>
+	<td><?echo substr($record->getDue(),0,10);?></td>
+	<td><?echo substr($record->getAccept(),0,10);?></td>
+	<td><?echo substr($record->getPublished(),0,10);?></td>
+	<td><?echo substr($record->getCreated(),0,10);?></td>
+	</tr>
+	<?endforeach?>
+	</table>
+	<?= $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml'); ?>
+<?else :?>
+	The results is null! Maybe the post is invalid or none of input! <br>
+<?endif?>

@@ -1,0 +1,49 @@
+<?
+echo $this->headLink()
+			->setStylesheet($this->baseUrl().'/css/ui.jqgrid.css');
+?>
+<script src="<?echo $this->baseUrl();?>/js/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/grid.locale-zh_tw.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="<?echo $this->baseUrl();?>/js/dtable.js" type="text/javascript"></script>
+<img src="<?echo $this->baseUrl();?>/images/step2.jpg">
+<div id="MasterDetail" style="overflow:scroll; width:100%; height:90%;">
+	<table id="MasterGrid0" join type="edit,add,del,search" sql="editgrid" db="toyota" 
+		table="partition" value= "1.配分設定" 
+		title="類型代號,類型名稱,考試代號,配題數,配分" 
+		field="partition_id,name,exam_id,item,score" 
+		key="partition_id">
+	</table>
+	<div id="mpager0"></div>
+
+	<table id="MasterGrid1" join type="search" sql="editgrid" db="toyota" 
+		table="question" value= "2.預覽抽題" 
+		title="題目代號,題目,supervisor,考試代號,考試類型" 
+		field="question_id,name,supervisor,exam_id,partition_name" 
+		key="partition_id" where="mytype='radio'" >
+	</table>
+	<div id="mpager1"></div>
+<!--
+<table id="listTable" type="edit" sql="editgrid" db="toyota" table="user" value= "帳號管理" name="代號,帳號,姓名,角色" field="user_id,name,cname,role" key="user_id" where= "user_id='<?//echo $this->user->user_id?>'"></table>
+-->
+
+<hr />
+<span id="spaMsg"></span>
+<br />
+<?
+
+$this->form->addElement('submit', 'formsubmit', 
+	array(
+	'decorators' => $this->form->simpleDecorators,
+	'label'       => '開始抽題',
+	'class'		 => STYLE
+));
+?>
+<div id="view-content">
+	<?php
+	echo $this->form->setAction($this->baseUrl().'/exam/exam/step2') . '<br>';
+	?>
+</div>
+<input type="button"  value="上一步" class="<?echo STYLE;?>"  onclick= "window.location.href='<?echo $this->baseUrl();?>/exam/exam/step1'">
+<input type="button"  value="下一步" class="<?echo STYLE;?>"  onclick= "window.location.href='<?echo $this->baseUrl();?>/exam/exam/step3'">
+</div>
